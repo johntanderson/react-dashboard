@@ -1,9 +1,9 @@
-.home {
+.dashboard {
     flex: 4;
     min-width: 0;
 }
 
-.homeWidgets {
+.dashboardWidgets {
     display: flex;
     margin: 20px;
 }

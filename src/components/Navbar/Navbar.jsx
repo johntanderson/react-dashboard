@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "./Logo";
+import { Link } from 'react-router-dom';
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import {
@@ -12,6 +12,7 @@ import {
   MenuItem,
   Avatar,
 } from "@mui/material";
+import Logo from "./Logo";
 
 export default function Navbar(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -26,16 +27,19 @@ export default function Navbar(props) {
 
   return (
     <AppBar
-      position="sticky"
+      position="fixed"
       sx={{
         backgroundColor: "white",
         boxShadow: "0px 0px 15px -10px rgba(0, 0, 0, 0.75)",
+        zIndex: (theme) => theme.zIndex.drawer + 1
       }}
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
-        <Logo>LOGO</Logo>
+        <Logo>Issue Tracker</Logo>
         <Box>
           <IconButton
+            component={Link}
+            to='/messages'
             size="large"
             sx={{
               "&:hover": { backgroundColor: "transparent" },
@@ -81,8 +85,7 @@ export default function Navbar(props) {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose}>Account</MenuItem>
-            <MenuItem onClick={handleClose}>Settings</MenuItem>
+            <MenuItem onClick={handleClose}>Log Out</MenuItem>
           </Menu>
         </Box>
       </Toolbar>

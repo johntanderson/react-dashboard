@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import MainTheme from './themes/MainTheme';
 import App from './App';
-import "@fontsource/source-sans-pro"
-import "@fontsource/source-sans-pro/600.css"
-import "@fontsource/source-sans-pro/300.css"
+
+
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={MainTheme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

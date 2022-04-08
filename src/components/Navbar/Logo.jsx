@@ -5,7 +5,6 @@ export default function Logo(props) {
         <Typography 
             variant="h6" 
             component="div"
-            fontFamily='"Source Sans Pro", sans-serif'
             color="darkblue"
             fontSize="30px"
             fontWeight="bold"

@@ -1,100 +1,71 @@
-import React from 'react'
-import './sidebar.css';
-import { 
-  LineStyle, 
-  Timeline, 
-  TrendingUp, 
-  PersonOutline, 
-  Storefront, 
-  AttachMoney, 
-  BarChart,
-  MailOutline,
-  DynamicFeed,
-  ChatBubbleOutline,
-  WorkOutline,
-  Report
-} from '@mui/icons-material';
+import React from "react";
+import Drawer from "@mui/material/Drawer";
+import Toolbar from "@mui/material/Toolbar";
+import Box from "@mui/material/Box";
+import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
+import BugReportOutlinedIcon from '@mui/icons-material/BugReportOutlined';
+import SourceOutlinedIcon from '@mui/icons-material/SourceOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import SidebarList from './SidebarList';
+import SidebarListItem from './SidebarListItem';
 
 export default function Sidebar() {
   return (
-    <div className="sidebar">
-        <div className="sidebarWrapper">
-          <div className="sidebarMenu">
-            <h3 className="sidebarTitle">DASHBOARD</h3>
-            <ul className="sidebarList">
-              <li className="sidebarListItem active">
-                <LineStyle className="sidebarIcon" />
-                Home
-              </li>
-              <li className="sidebarListItem">
-                <Timeline className="sidebarIcon" />
-                Analytics
-              </li>
-              <li className="sidebarListItem">
-                <TrendingUp className="sidebarIcon" />
-                Sales
-              </li>
-            </ul>
-          </div>
-          
-          <div className="sidebarMenu">
-            <h3 className="sidebarTitle">QUICK MENU</h3>
-            <ul className="sidebarList">
-              <li className="sidebarListItem">
-                <PersonOutline className="sidebarIcon" />
-                Users
-              </li>
-              <li className="sidebarListItem">
-                <Storefront className="sidebarIcon" />
-                Products
-              </li>
-              <li className="sidebarListItem">
-                <AttachMoney className="sidebarIcon" />
-                Transactions
-              </li>
-              <li className="sidebarListItem">
-                <BarChart className="sidebarIcon" />
-                Reports
-              </li>
-            </ul>
-          </div>
-
-          <div className="sidebarMenu">
-            <h3 className="sidebarTitle">NOTIFICATIONS</h3>
-            <ul className="sidebarList">
-              <li className="sidebarListItem">
-                <MailOutline className="sidebarIcon" />
-                Mail
-              </li>
-              <li className="sidebarListItem">
-                <DynamicFeed className="sidebarIcon" />
-                Feedback
-              </li>
-              <li className="sidebarListItem">
-                <ChatBubbleOutline className="sidebarIcon" />
-                Messages
-              </li>
-            </ul>
-          </div>
-
-          <div className="sidebarMenu">
-            <h3 className="sidebarTitle">STAFF</h3>
-            <ul className="sidebarList">
-              <li className="sidebarListItem">
-                <WorkOutline className="sidebarIcon" />
-                Manage
-              </li>
-              <li className="sidebarListItem">
-                <Timeline className="sidebarIcon" />
-                Analytics
-              </li>
-              <li className="sidebarListItem">
-                <Report className="sidebarIcon" />
-                Reports
-              </li>
-            </ul>
-          </div>
-        </div>
-    </div>
-  )
+    <Drawer
+      variant="permanent"
+      sx={{
+        width: 240,
+        flexShrink: 0,
+        [`& .MuiDrawer-paper`]: { width: 240, boxSizing: "border-box", boxShadow: "0 1px 25px 1px rgb(0 0 0 / 11%)", border: 'none'},
+      }}
+    >
+      <Toolbar />
+      <Box sx={{ overflow: "auto",  marginTop: "25px", padding: '5px'}}>
+        <SidebarList title="Navigation">
+          <SidebarListItem 
+            icon={<DashboardOutlinedIcon sx={{fontSize: '22px'}} />}
+            path='/dashboard'
+          >
+            Dashboard
+          </SidebarListItem>
+          <SidebarListItem 
+            icon={<SourceOutlinedIcon sx={{fontSize: '22px'}} />}
+            path='/projects'
+          >
+            My Projects
+          </SidebarListItem>
+          <SidebarListItem 
+            icon={<BugReportOutlinedIcon sx={{fontSize: '22px'}} />}
+            path='/issues'
+          >
+            Assigned Issues
+          </SidebarListItem>
+          <SidebarListItem 
+            icon={<EmailOutlinedIcon sx={{fontSize: '22px'}} />}
+            path='/messages'
+          >
+            Messages
+          </SidebarListItem>
+        </SidebarList>
+        <SidebarList title="Account">
+          <SidebarListItem 
+            icon={<SettingsOutlinedIcon sx={{fontSize: '22px'}} />}
+            path='/settings'
+          >
+            Settings
+          </SidebarListItem>
+        </SidebarList>
+        <SidebarList title="Administration">
+          <SidebarListItem 
+            icon={<AdminPanelSettingsOutlinedIcon sx={{fontSize: '22px'}} />}
+            path='/admin'
+          >
+            Manage Users
+          </SidebarListItem>
+        </SidebarList>
+      </Box>
+    </Drawer>
+  );
 }
