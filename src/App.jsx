@@ -1,8 +1,5 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import "@fontsource/source-sans-pro"
-import "@fontsource/source-sans-pro/600.css"
-import "@fontsource/source-sans-pro/300.css"
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Navbar from "./components/Navbar/Navbar";
